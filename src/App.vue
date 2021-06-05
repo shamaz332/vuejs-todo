@@ -3,17 +3,15 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      permanent
+      
     >
 
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            Application
+            Vuetify
           </v-list-item-title>
-          <v-list-item-subtitle>
-            subtext
-          </v-list-item-subtitle>
+        
         </v-list-item-content>
       </v-list-item>
 
@@ -26,6 +24,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
+          :to="item.to"
           link
         >
           <v-list-item-icon>
@@ -42,11 +41,11 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Todo</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <!--  -->
+  <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -60,8 +59,8 @@
   ,
   
    items: [
-          { title: 'Home', icon: 'mdi-view-dashboard' },
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'Home', icon: 'mdi-view-dashboard',to:"/" },
+          { title: 'About', icon: 'mdi-help-box' ,to:"about"},
         ],
   }),
   }
